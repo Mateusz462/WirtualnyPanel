@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Auth;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,14 +19,21 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'lastname',
+        'login',
         'email',
         'password',
+        'avatar_type',
+        'avatar_location',
+        'code',
+        'status',
+        'deleted',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes that should be hidden for arrays.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $hidden = [
         'password',
@@ -34,9 +41,9 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be cast to native types.
      *
-     * @var array<string, string>
+     * @var array
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
